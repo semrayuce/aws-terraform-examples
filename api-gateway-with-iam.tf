@@ -125,4 +125,5 @@ resource "aws_iam_policy" "policy" {
 
 resource "aws_iam_user_policy_attachment" "attachment" {
   user       = aws_iam_user.api_gateway_user.name
-  policy_arn = aws_iam
+  policy_arn = aws_iam_policy.policy.arn
+}
