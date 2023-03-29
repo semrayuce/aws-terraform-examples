@@ -14,11 +14,10 @@ module "lambda_function" {
     {
       "Sid": "VisualEditor0",
       "Action": [
-        "logs:PutLogEvents",
-        "logs:CreateLogStream",
-        "logs:CreateLogGroup"
+        "dynamodb:PutItem",
+				"dynamodb:UpdateItem"
     ],
-    "Resource": "*",
+    "Resource": "arn:aws:dynamodb:${local.region}:${local.account_id}:table/SampleTable",
     "Effect": "Allow"
     }
   ]
