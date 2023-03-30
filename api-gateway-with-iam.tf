@@ -1,4 +1,4 @@
-esource "aws_api_gateway_rest_api" "api_gateway" {
+resource "aws_api_gateway_rest_api" "api_gateway" {
   name        = "api_gateway_with_iam"
   description = "Api gateway to invoke lambda function"
 }
@@ -11,7 +11,7 @@ resource "aws_api_gateway_method" "post_req" {
    api_key_required = false
 
    request_models = {
-    "application/json" = aws_api_gateway_model.api_req_model.name
+    "application/json" = aws_api_gateway_model.request_model.name
   }
 }
 
@@ -82,20 +82,20 @@ resource "aws_lambda_permission" "apigw" {
    source_arn = "${aws_api_gateway_rest_api.api_gateway.execution_arn}/*/*"
 }
 
-resource "aws_api_gateway_model" "api_req_model" {
+resource "aws_api_gateway_model" "request_model" {
   rest_api_id  = aws_api_gateway_rest_api.api_gateway.id
-  name         = "api_req_model"
+  name         = "modelSample"
   description  = "Request model"
   content_type = "application/json"
 
   schema = jsonencode({
     "type" : "object",
-    "required" : ["Name", "Surname"],
+    "required" : ["UserId","Name", "Surname"],
     "properties" : {
-    "Name" : {
-      "type" : "string"
+    "UserId" : {
+      "type" : "number"
     },
-    "Surname" : {
+    "User" : {
       "type" : "string"
     }
   }
@@ -109,7 +109,10 @@ data "aws_iam_policy_document" "api_policy_doc" {
    statement {
       effect = "Allow"
       actions = ["execute-api:Invoke", "lambda:InvokeFunction"]
-      resources = ["arn:aws:execute-api:${local.region}:${local.account_id}:${aws_api_gateway_rest_api.api_gateway.id}/*/*/*","arn:aws:lambda:${local.region}:${local.account_id}:${data.aws_lambda_function.lambda_function.function_name}]
+      resources = [
+        "arn:aws:execute-api:${local.region}:${local.account_id}:${aws_api_gateway_rest_api.api_gateway.id}/*/*/*",
+        "arn:aws:lambda:${local.region}:${local.account_id}:${data.aws_lambda_function.lambda_function.function_name}"
+       ]
    }
 }
 

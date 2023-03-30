@@ -2,8 +2,8 @@ import json
 import boto3
 
 def lambda_handler(event,context):
-    name = event['Name']
-    surname = event['Surname']
+    userId = event['UserId']
+    user = event['User']
 
     dynamodb = boto3.resource('dynamodb')
 
@@ -11,8 +11,8 @@ def lambda_handler(event,context):
 
     response = table.put_item(
        Item={
-            'name': name,
-            'surname': surname
+            'userId' : userId,
+            'user': user
         }
     )
     return response

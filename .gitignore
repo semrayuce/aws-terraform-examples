@@ -1,0 +1,14 @@
+api-gateway-with-iam.tf
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+.terraform/providers/registry.terraform.io/hashicorp/aws/4.60.0/darwin_arm64/terraform-provider-aws_v4.60.0_x5
+.terraform/providers/registry.terraform.io/hashicorp/external/2.3.1/darwin_arm64/terraform-provider-external_v2.3.1_x5
+.terraform/providers/registry.terraform.io/hashicorp/local/2.4.0/darwin_arm64/terraform-provider-local_v2.4.0_x5
+.terraform/providers/registry.terraform.io/hashicorp/null/3.2.1/darwin_arm64/terraform-provider-null_v3.2.1_x5
+builds/501b235d91f2e204f68ce2bb0cf27d91c7336d0bd1d20f00174794894cf692a7.zip
+builds/829f2f705a00e9701794e33c7299ce4e6e0d7e11033df7a6da692627d2ec7272.plan.json
+builds/829f2f705a00e9701794e33c7299ce4e6e0d7e11033df7a6da692627d2ec7272.zip
+.terraform.tfstate.lock.info
+builds/a660f2932c6b326343666908235cd70bd420e4e9622a5c79ff06a7cd9c757bdb.plan.json
+.terraform/modules/modules.json
