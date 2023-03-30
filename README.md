@@ -3,9 +3,7 @@ Api-gateway to invoke lambda function and insert data to dynamoDB.
 
 ![aws_logos](https://user-images.githubusercontent.com/6909124/228962653-7e80c637-0645-4932-8cac-599f51a5b1af.png)
 
-Both IAM role and api-key authorizers are provided for api-gateway. Currently, IAM role is activated. Swich it to api-key based authorization in aws_api_gateway_method resource with:
-- authorization = "NONE"
-- api_key_required = true
+Both IAM role and api-key authorizers are provided for api-gateway. Currently, IAM role is activated. Swich it to api-key based authorization with https://github.com/semrayuce/api-gateway-with-key/blob/main/api-gateway-with-key.tf.
 
 
 ## Prerequisites
