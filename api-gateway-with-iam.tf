@@ -90,7 +90,7 @@ resource "aws_api_gateway_model" "request_model" {
 
   schema = jsonencode({
     "type" : "object",
-    "required" : ["UserId","Name", "Surname"],
+    "required" : ["UserId","User"],
     "properties" : {
     "UserId" : {
       "type" : "number"
